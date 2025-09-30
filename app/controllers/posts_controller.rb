@@ -3,14 +3,12 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
-
-    # Eager load comments to avoid N+1 queries
-    # @posts = Post.includes(:comments)
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.xml  { render :xml => @posts }
-    # end
+    if params[:query] == "n+1"
+      @posts = Post.all
+    else
+      # Eager load comments to avoid N+1 queries
+      @posts = Post.includes(:comments)
+    end
   end
 
   # GET /posts/1 or /posts/1.json
