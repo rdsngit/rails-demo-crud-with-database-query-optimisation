@@ -1,7 +1,7 @@
 <% posts = local_assigns[:posts] || [] %>
 
 <div id="posts">
-  <table>
+  <table style="width:100%" border="1">
     <% posts.each do |post| %>
       <tr>
         <td><%= post.name %></td>
