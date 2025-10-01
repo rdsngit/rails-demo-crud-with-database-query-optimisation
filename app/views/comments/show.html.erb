@@ -1,10 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<h1>Comment</h1>
 
-<%= render @comment %>
+<div class="section">
+  <p style="color: green"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit this comment", edit_comment_path(@comment) %> |
-  <%= link_to "Back to comments", comments_path %>
+  <%= render @comment %>
 
-  <%= button_to "Destroy this comment", @comment, method: :delete %>
+  <div class="button-group">
+    <%= link_to "Edit this comment", edit_comment_path(@comment), class: "button-neutral"  %>
+    <%= button_to "Destroy this comment", @comment, form: { data: { turbo_confirm: 'Are you sure?' } }, method: :delete, class: "button-danger" %>
+  </div>
+
+  <div>
+    <%= link_to "Back to Post", post_path(@comment.post) %>
+  </div>
 </div>

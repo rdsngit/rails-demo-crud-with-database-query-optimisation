@@ -1,10 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<h1> Post Details </h1>
 
-<%= render @post %>
+<div class="section">
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
+  <p class="text-green-300"><%= notice %></p>
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
+  <%= render @post %>
+
+  <div>
+    <strong>Comments</strong>:
+    <ul>
+      <% @post.comments.each do |comment| %>
+        <li><%= link_to comment.name, comment_path(comment, post_id: @post.id) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="button-group">
+    <%= link_to "Add Comment", new_comment_path(post_id: @post.id), class: "button-success" %>
+    <%= link_to "Edit this post", edit_post_path(@post), class: "button-neutral" %>
+    <%= button_to "Destroy this post", @post, form: { data: { turbo_confirm: 'Are you sure?' } }, method: :delete, class: "button-danger" %>
+  </div>
+
+  <div>
+    <%= link_to "Back to posts", posts_path %>
+  </div>
 </div>

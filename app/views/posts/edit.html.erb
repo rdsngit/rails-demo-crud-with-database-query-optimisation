@@ -4,9 +4,10 @@
 
 <%= render "form", post: @post %>
 
-<br>
+<div>
+  <%= link_to "Show this post", @post %>
+</div>
 
 <div>
-  <%= link_to "Show this post", @post %> |
   <%= link_to "Back to posts", posts_path %>
 </div>
