@@ -6,7 +6,7 @@
 
   <p>
     <strong>Post:</strong>
-    <%= comment.post_id %>
+    <%= link_to comment.post.name, post_path(comment.post) %>
   </p>
 
 </div>

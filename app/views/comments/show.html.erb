@@ -2,6 +2,11 @@
 
 <%= render @comment %>
 
+<p>
+  <strong>Post:</strong>
+  <%= link_to comment.post.name, post_path(comment.post) %>
+</p>
+
 <div>
   <%= link_to "Edit this comment", edit_comment_path(@comment) %> |
   <%= link_to "Back to comments", comments_path %>
