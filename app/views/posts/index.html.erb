@@ -1,29 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Posts" %>
 
-<h1>Posts</h1>
+<h1 class="text-xl font-bold">Posts</h1>
 
-<p> Click the links below to see the difference between an optimised database query and N+1 queries. </p>
+<div class="section">
+  <p> Click the links below to see the difference between an optimised database query and N+1 queries. </p>
 
-<ul>
-  <li><%= link_to 'Posts with optimised database query', posts_path %></li>
-  <li><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1' ) %></li>
-</ul>
+  <ul>
+    <li><%= link_to 'Posts with optimised database query', posts_path %></li>
+    <li><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1') %></li>
+  </ul>
 
-<div id="posts">
-  <table>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.name %></td>
-        <td><%= post.comments.map(&:name) %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-      </tr>
-    <% end %>
-  </table>
+  <p class="text-green-300"><%= notice %></p>
+
+  <%= render partial: "table", locals: { posts: @posts } %>
+
+  <%= link_to "New post", new_post_path, class: "button" %>
 </div>
-
-<br>
-<%= link_to "New post", new_post_path %>

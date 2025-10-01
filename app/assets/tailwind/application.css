@@ -1,1 +1,65 @@
 @import "tailwindcss";
+
+.container {
+  @apply mx-auto mt-10 px-5;
+}
+
+.section {
+  @apply space-y-5;
+}
+
+h1 {
+  @apply text-3xl font-bold mb-4;
+}
+
+a {
+  @apply underline;
+}
+
+table {
+  @apply w-full border-3 border-gray-300 mb-4;
+}
+
+th {
+  @apply bg-gray-100 border-3 border-gray-300 p-2 text-left align-top;
+}
+
+td {
+  @apply border-2 border-gray-300 p-2 text-left align-top;
+}
+
+.button, .button-neutral {
+  @apply rounded-sm bg-gray-200 p-2.5 text-gray-600 hover:text-gray-900 no-underline;
+}
+
+.button-danger {
+  @apply rounded-sm bg-red-200 p-2.5 text-red-600 hover:text-red-900 no-underline;
+}
+
+.button-success {
+  @apply rounded-sm bg-green-200 p-2.5 text-green-600 hover:text-green-900 no-underline;
+}
+
+.button-group {
+  @apply flex gap-2 my-4
+}
+
+.text-notice {
+  @apply text-green-300 font-medium;
+}
+
+ul {
+  @apply list-disc list-inside;
+}
+
+input[type=text], textarea {
+  @apply mb-2 border border-gray-300 p-2 w-full;
+}
+
+input[type=submit] {
+  @apply mb-2 rounded-sm bg-gray-200 p-2.5 text-gray-600 hover:text-gray-900 no-underline;
+}
+
+label {
+  @apply block mb-2 font-medium;
+}
