@@ -1,0 +1,15 @@
+<% posts = local_assigns[:posts] || [] %>
+
+<div id="posts">
+  <table>
+    <% posts.each do |post| %>
+      <tr>
+        <td><%= post.name %></td>
+        <td><%= post.comments.map(&:name) %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
