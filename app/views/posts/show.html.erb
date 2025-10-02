@@ -6,7 +6,7 @@
 <strong>Comments</strong>:
   <ul>
     <% @post.comments.each do |comment| %>
-      <li><%= comment.name %></li>
+      <li><%= link_to comment.name, comment_path(comment) %></li>
     <% end %>
   </ul>
 </div>
