@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :comments, only: %i[ show new create edit update destroy ]
   resources :posts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
