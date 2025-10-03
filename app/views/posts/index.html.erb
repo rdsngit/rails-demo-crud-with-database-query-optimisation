@@ -1,17 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<p class="green-300"><%= notice %></p>
 
 <% content_for :title, "Posts" %>
 
-<h1>Posts</h1>
+<h1 class="text-xl font-bold">Posts</h1>
 
 <p> Click the links below to see the difference between an optimised database query and N+1 queries. </p>
 
 <ul>
-  <li><%= link_to 'Posts with optimised database query', posts_path %></li>
-  <li><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1' ) %></li>
+  <li class="underline"><%= link_to 'Posts with optimised database query', posts_path %></li>
+  <li class="underline"><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1' ) %></li>
 </ul>
 
 <%= render partial: "table", locals: { posts: @posts } %>
 
-<br>
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_post_path, class: "rounded-sm bg-gray-100 p-2.5 text-gray-600 hover:text-gray-900" %>
