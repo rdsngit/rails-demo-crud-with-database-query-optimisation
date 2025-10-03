@@ -1,27 +1,27 @@
 <% posts = local_assigns[:posts] || [] %>
 
-<div id="posts">
-  <table style="width:100%" border="1">
+<div id="posts" class="my-4">
+  <table class="w-full border border-gray-600">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Comments</th>
-        <th colspan="3">Actions</th>
+        <th class="p-2 border">Name</th>
+        <th class="p-2 border">Comments</th>
+        <th class="p-2 border" colspan="3">Actions</th>
       </tr>
     </thead>
     <% posts.each do |post| %>
-      <tr style="vertical-align:top">
-        <td><%= post.name.upcase_first %></td>
-        <td>
+      <tr class="align-top">
+        <td class="p-2 border"><%= post.name.upcase_first %></td>
+        <td class="p-2 border">
           <ul>
             <% post.comments.each do |comment| %>
               <li><%= comment.name.upcase_first %></li>
             <% end %>
           </ul>
         </td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td class="p-2 border underline"><%= link_to 'Show', post %></td>
+        <td class="p-2 border underline"><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td class="p-2 border underline"><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </table>
