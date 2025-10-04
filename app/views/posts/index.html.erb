@@ -4,13 +4,15 @@
 
 <h1 class="text-xl font-bold">Posts</h1>
 
-<p> Click the links below to see the difference between an optimised database query and N+1 queries. </p>
+<div class="section">
+  <p> Click the links below to see the difference between an optimised database query and N+1 queries. </p>
 
-<ul>
-  <li><%= link_to 'Posts with optimised database query', posts_path %></li>
-  <li><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1') %></li>
-</ul>
+  <ul>
+    <li><%= link_to 'Posts with optimised database query', posts_path %></li>
+    <li><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1') %></li>
+  </ul>
 
-<%= render partial: "table", locals: { posts: @posts } %>
+  <%= render partial: "table", locals: { posts: @posts } %>
 
-<%= link_to "New post", new_post_path, class: "button" %>
+  <%= link_to "New post", new_post_path, class: "button" %>
+</div>
