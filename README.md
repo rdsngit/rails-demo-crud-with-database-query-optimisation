@@ -4,6 +4,11 @@ The Bullet gem is designed to indentify database performance issues and suggest 
 
 - Bullet gem: https://github.com/flyerhzm/bullet
 
+The app is styled using Tailwind CSS.
+
+- Tailwind CSS Rails gem: https://github.com/rails/tailwindcss-rails
+- Tailwind CSS docs: https://tailwindcss.com/docs/
+
 ## Setup
 
 Install the Ruby version in the `.ruby-version` file then run the terminal command `bundle install`.
