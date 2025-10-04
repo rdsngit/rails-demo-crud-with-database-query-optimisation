@@ -7,10 +7,10 @@
 <p> Click the links below to see the difference between an optimised database query and N+1 queries. </p>
 
 <ul>
-  <li class="underline"><%= link_to 'Posts with optimised database query', posts_path %></li>
-  <li class="underline"><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1' ) %></li>
+  <li><%= link_to 'Posts with optimised database query', posts_path %></li>
+  <li><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1') %></li>
 </ul>
 
 <%= render partial: "table", locals: { posts: @posts } %>
 
-<%= link_to "New post", new_post_path, class: "rounded-sm bg-gray-100 p-2.5 text-gray-600 hover:text-gray-900" %>
+<%= link_to "New post", new_post_path, class: "button" %>

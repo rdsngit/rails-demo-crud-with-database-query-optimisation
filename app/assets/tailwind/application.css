@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+h1 {
+  @apply text-3xl font-bold mb-4;
+}
+
+a {
+  @apply underline;
+}
+
+table {
+  @apply w-full border border-gray-300 mb-4;
+}
+
+th, td {
+  @apply border border-gray-300 p-2 text-left align-top;
+}
+
+.button {
+  @apply rounded-sm bg-gray-200 p-2.5 text-gray-600 hover:text-gray-900 no-underline;
+}
