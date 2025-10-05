@@ -19,9 +19,15 @@
             <% end %>
           </ul>
         </td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><div class="px-1 py-3">
+          <%= link_to 'Show', post, class: "button-success" %>
+        </div></td>
+        <td><div class="px-1 py-3">
+          <%= link_to 'Edit', edit_post_path(post), class: "button-neutral" %>
+        </div></td>
+        <td><div class="p-1">
+          <%= button_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete, class: "button-danger" %>
+        </div></td>
       </tr>
     <% end %>
   </table>
