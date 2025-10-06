@@ -5,9 +5,12 @@
 
   <%= render @comment %>
 
+  <div class="button-group">
+    <%= link_to "Edit this comment", edit_comment_path(@comment), class: "button-neutral"  %>
+    <%= button_to "Destroy this comment", @comment, method: :delete, class: "button-danger" %>
+  </div>
+
   <div>
-    <%= link_to "Edit this comment", edit_comment_path(@comment) %>
-    <%= button_to "Destroy this comment", @comment, method: :delete, class: "underline" %>
-    <%= link_to "Back to post", post_path(@comment.post) %>
+    <%= link_to "Back to Post", post_path(@comment.post) %>
   </div>
 </div>

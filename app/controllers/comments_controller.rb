@@ -45,10 +45,11 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
+    post = @comment.post
     @comment.destroy!
 
     respond_to do |format|
-      format.html { redirect_to comments_path, notice: "Comment was successfully destroyed.", status: :see_other }
+      format.html { redirect_to post_path(post), notice: "Comment was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end
