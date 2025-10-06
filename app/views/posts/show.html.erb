@@ -2,7 +2,7 @@
 
 <div class="section">
 
-  <p class="text-green-300"><%= notice %></p>
+  <p class="text-notice"><%= notice %></p>
 
   <%= render @post %>
 
@@ -10,7 +10,7 @@
     <strong>Comments</strong>:
     <ul>
       <% @post.comments.each do |comment| %>
-        <li><%= link_to comment.name, comment_path(comment, post_id: @post.id) %></li>
+        <li><%= link_to comment.content, comment_path(comment, post_id: @post.id) %></li>
       <% end %>
     </ul>
   </div>
