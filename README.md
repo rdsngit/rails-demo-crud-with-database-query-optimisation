@@ -53,7 +53,7 @@ USE eager loading detected
 
 This app's webpages are styled using [Tailwind CSS](https://tailwindcss.com).
 
-The customsed CSS styles for the app are defined in: [/app/assets/tailwind/application.css](/app/assets/tailwind/application.css)
+The customised CSS styles for the app are defined in: [/app/assets/tailwind/application.css](/app/assets/tailwind/application.css)
 
 ## Screenshots
 
