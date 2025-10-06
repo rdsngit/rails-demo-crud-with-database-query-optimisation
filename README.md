@@ -39,9 +39,9 @@ You can create, view, edit and delete posts records as well as their associated 
 
 Click on the links to view the effect of the optimised database query compared to the N+1 query.
 
-## Use of Bullet library for database queries
+## Use of Bullet gem for optimising database queries
 
-When there is an N+1 query detected it should show an error and suggestion for improving the query performance, like the following message:
+When there is an N+1 query detected the Bullet gem should trigger errors to be displayed with suggestions for improving the query performance, like the following message:
 
 ```
 USE eager loading detected
