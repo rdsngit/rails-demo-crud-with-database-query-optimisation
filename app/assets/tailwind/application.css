@@ -17,11 +17,15 @@ a {
 }
 
 table {
-  @apply w-full border border-gray-300 mb-4;
+  @apply w-full border-3 border-gray-300 mb-4;
 }
 
-th, td {
-  @apply border border-gray-300 p-2 text-left align-top;
+th {
+  @apply bg-gray-100 border-3 border-gray-300 p-2 text-left align-top;
+}
+
+td {
+  @apply border-2 border-gray-300 p-2 text-left align-top;
 }
 
 .button, .button-neutral {
