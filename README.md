@@ -54,3 +54,9 @@ USE eager loading detected
 This app's webpages are styled using [Tailwind CSS](https://tailwindcss.com).
 
 The customsed CSS styles for the app are defined in: [/app/assets/tailwind/application.css](/app/assets/tailwind/application.css)
+
+## Screenshots
+
+![screenshot of posts with comments table](/screenshots/screenshot-posts-with-comments-table.png)
+
+![screenshot of N+1 query warning](/screenshots/screenshot-n+1-query-warning.png)
