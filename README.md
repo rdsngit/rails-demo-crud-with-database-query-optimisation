@@ -49,6 +49,16 @@ USE eager loading detected
   Add to your query: .includes([:comments])
 ```
 
+An example in this demo app is when it loads all post records in the posts controller then loads the associated comments records in the index view file.
+
+https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/controllers/posts_controller.rb#L7
+
+https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/views/posts/_table.html.erb#L17
+
+The optimised query is to eager load the associated comments in the controller action.
+
+https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/controllers/posts_controller.rb#L9-L10
+
 ## Tailwind CSS styling
 
 This app's webpages are styled using [Tailwind CSS](https://tailwindcss.com).
