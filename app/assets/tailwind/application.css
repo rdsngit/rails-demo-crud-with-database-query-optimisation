@@ -44,6 +44,10 @@ td {
   @apply flex gap-2 my-4
 }
 
+.text-notice {
+  @apply text-green-600 font-medium;
+}
+
 ul {
   @apply list-disc list-inside;
 }
