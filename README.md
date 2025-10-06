@@ -39,15 +39,25 @@ You can create, view, edit and delete posts records as well as their associated 
 
 Click on the links to view the effect of the optimised database query compared to the N+1 query.
 
-## Use of Bullet library for database queries
+## Use of Bullet gem for optimising database queries
 
-When there is an N+1 query detected it should show an error and suggestion for improving the query performance, like the following message:
+When there is an N+1 query detected the Bullet gem should trigger errors to be displayed with suggestions for improving the query performance, like the following message:
 
 ```
 USE eager loading detected
   Post => [:comments]
   Add to your query: .includes([:comments])
 ```
+
+An example in this demo app is when it loads all post records in the posts controller then loads the associated comments records in the index view file.
+
+https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/controllers/posts_controller.rb#L7
+
+https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/views/posts/_table.html.erb#L17
+
+The optimised query is to eager load the associated comments in the controller action.
+
+https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/controllers/posts_controller.rb#L9-L10
 
 ## Tailwind CSS styling
 
