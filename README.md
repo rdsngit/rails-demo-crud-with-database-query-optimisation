@@ -35,9 +35,9 @@ bin/dev
 
 Then open your internet browser, such as Chrome, and visit `http://localhost:3000/`
 
-Click on the links to view the effect of the optimised database query compared to the N+1 query.
-
 You can create, view, edit and delete posts records as well as their associated comments.
+
+Click on the links to view the effect of the optimised database query compared to the N+1 query.
 
 ## Use of Bullet library for database queries
 
