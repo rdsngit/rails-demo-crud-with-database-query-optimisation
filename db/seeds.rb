@@ -10,6 +10,6 @@
 
 [ "first_post", "second_post" ].each do |post_name|
   post = Post.find_or_create_by!(name: post_name)
-  post.comments.find_or_create_by!(name: 'first_comment')
-  post.comments.find_or_create_by!(name: 'second_comment')
+  post.comments.find_or_create_by!(content: 'first_comment')
+  post.comments.find_or_create_by!(content: 'second_comment')
 end

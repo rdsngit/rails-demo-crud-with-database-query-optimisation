@@ -15,7 +15,7 @@
         <td>
           <ul>
             <% post.comments.each do |comment| %>
-              <li><%= comment.name.upcase_first %></li>
+              <li><%= comment.content.upcase_first %></li>
             <% end %>
           </ul>
         </td>

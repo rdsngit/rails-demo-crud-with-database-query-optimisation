@@ -10,7 +10,7 @@
     <li><%= link_to 'Posts with N+1 queries', posts_path(query: 'n+1') %></li>
   </ul>
 
-  <p class="text-green-300"><%= notice %></p>
+  <p class="text-notice"><%= notice %></p>
 
   <%= render partial: "table", locals: { posts: @posts } %>
 

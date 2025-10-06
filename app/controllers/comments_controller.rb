@@ -67,6 +67,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.expect(comment: [ :name, :post_id ])
+      params.expect(comment: [ :content, :post_id ])
     end
 end

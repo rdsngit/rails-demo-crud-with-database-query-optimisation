@@ -45,7 +45,7 @@ td {
 }
 
 .text-notice {
-  @apply text-green-300 font-medium;
+  @apply text-green-600 font-medium;
 }
 
 ul {
