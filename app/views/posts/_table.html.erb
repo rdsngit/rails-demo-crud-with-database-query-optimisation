@@ -13,6 +13,12 @@
       <tr>
         <td><%= post.name.upcase_first %></td>
         <td>
+          <% if post.comments.empty? %>
+            <em>No comments</em>
+          <% else %>
+            <% comments_count = @counter_cache_warning ? post.comments.count : post.comments_count %>
+            <%= pluralize(comments_count, 'Comment') %>:
+          <% end %>
           <ul>
             <% post.comments.each do |comment| %>
               <li><%= comment.content.upcase_first %></li>

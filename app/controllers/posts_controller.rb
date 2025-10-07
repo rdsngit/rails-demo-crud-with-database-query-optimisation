@@ -3,6 +3,10 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
+    if params[:query] == "counter-cache-warning"
+      # set flag to trigger counter cache warning in view
+      @counter_cache_warning = true
+    end
     if params[:query] == "n+1"
       @posts = Post.all
     else
