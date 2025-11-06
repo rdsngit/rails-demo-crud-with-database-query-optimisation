@@ -39,6 +39,39 @@ You can create, view, edit and delete posts records as well as their associated 
 
 Click on the links to view the effect of the optimised database query compared to the N+1 query warning and counter cache warning.
 
+## Run the tests
+
+The test libraries used include the following Ruby gems:
+
+- [`factory_bot_rails`](https://github.com/thoughtbot/factory_bot_rails)
+- [`rspec-rails`](https://github.com/rspec/rspec-rails)
+- [`shoulda-matchers`](https://github.com/thoughtbot/shoulda-matchers)
+
+The tests are located in [/spec](/spec).
+
+To run the test use the terminal command `bin/rspec`.
+
+```
+$ bin/rspec
+
+Comment
+  associations
+    is expected to belong to post required: true counter_cache => true
+  validations
+    is expected to validate that :content cannot be empty/falsy
+    is expected to validate that the length of :content is between 3 and 255
+
+Post
+  associations
+    is expected to have many comments
+  associations
+    is expected to validate that :name cannot be empty/falsy
+    is expected to validate that the length of :name is between 3 and 255
+
+Finished in 0.01892 seconds (files took 0.88882 seconds to load)
+6 examples, 0 failures
+```
+
 ## Use of Bullet gem for optimising database queries
 
 ### Optimised query
