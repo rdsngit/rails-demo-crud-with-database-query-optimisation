@@ -47,7 +47,10 @@ The test libraries used include the following Ruby gems:
 - [`rspec-rails`](https://github.com/rspec/rspec-rails)
 - [`shoulda-matchers`](https://github.com/thoughtbot/shoulda-matchers)
 
-The tests are located in [/spec](/spec).
+The tests are located in [/spec](/spec):
+
+- Unit tests for the models are located in [/spec/models](/spec/models)
+- Request tests for rendering pages and CRUD operations are located in [/spec/requests](/spec/requests)
 
 To run the test use the terminal command `bin/rspec`.
 
@@ -68,8 +71,24 @@ Post
     is expected to validate that :name cannot be empty/falsy
     is expected to validate that the length of :name is between 3 and 255
 
-Finished in 0.01892 seconds (files took 0.88882 seconds to load)
-6 examples, 0 failures
+Posts
+  GET /posts
+    renders the table to display for posts with their comments
+  GET /posts/new
+    renders the new post page
+  POST /posts
+    creates a new post record and redirects to post show page
+  GET /posts/:id
+    renders the post show page with associated comments
+  GET /posts/:id/edit
+    renders the post edit page with associated comments
+  PATCH /posts/:id/edit
+    updates the post and redirects to post show page
+  DELETE /posts/:id
+    deletes the post and redirects to posts index page
+
+Finished in 0.14284 seconds (files took 0.90311 seconds to load)
+13 examples, 0 failures
 ```
 
 ## Use of Bullet gem for optimising database queries
