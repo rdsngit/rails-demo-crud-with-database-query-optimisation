@@ -11,6 +11,8 @@ The app is styled using Tailwind CSS.
 - Tailwind CSS Rails gem: https://github.com/rails/tailwindcss-rails
 - Tailwind CSS docs: https://tailwindcss.com/docs/
 
+It contains model unit tests as well as integration request specs for CRUD operations - see section on tests below for more.
+
 ## Setup
 
 Install the Ruby version in the `.ruby-version` file then run the setup script to install the libraries and create the database.
