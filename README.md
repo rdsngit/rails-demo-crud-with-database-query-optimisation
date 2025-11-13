@@ -95,11 +95,19 @@ Finished in 0.14284 seconds (files took 0.90311 seconds to load)
 
 ## Use of Bullet gem for optimising database queries
 
+The example database queries used for the `bullet` gem demo in this app are located in the `PostsController`.
+
+- [/app/controllers/posts_controller.rb](/app/controllers/posts_controller.rb)
+
 ### Optimised query
 
-The optimised query is to eager load the associated comments in the controller action.
+The optimised query is to eager load the post record's associated comments in the `#index` controller action.
 
-https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/controllers/posts_controller.rb#L9-L10
+```rb
+# app/controllers/posts_controller.rb
+# Eager load comments to avoid N+1 queries
+@posts = Post.includes(:comments)
+```
 
 ### Query with N+1 warnings
 
@@ -111,21 +119,43 @@ USE eager loading detected
   Add to your query: .includes([:comments])
 ```
 
-An example in this demo app is when it loads all post records in the posts controller then loads the associated comments records in the index view file.
+An example in this demo app is when it loads all post records in the posts controller then loads the associated comments records in the index view file via the posts table partial.
 
-https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/controllers/posts_controller.rb#L7
+```rb
+# app/controllers/posts_controller.rb
+@posts = Post.all
+```
 
-https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/98c91e7aaa86e8fe69d9d31a286ec300c5f7e4ba/app/views/posts/_table.html.erb#L17
+```rb
+# app/views/posts/_table.html.erb
+<% post.comments.each do |comment| %>
+```
 
 ### Query with counter cache warnings
 
-When records count is loaded without using a counter cache the Bullet gem triggers a warning.
+When records are loaded and then counted using the `#count` method without using a counter cache the Bullet gem triggers a warning.
 
 This can be seen in the demo app when post records load their associated comments then count them using `post.comments.count` rather than using the counter cache that is accessed using `post.comments_count`.
 
-https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/e2b6fae87340603a05d41b59a8b05b0e99759177/app/models/comment.rb#L2
+The `Comment` model has `counter_cache` set to `true` for its `belongs_to` association with the `Post` model.
 
-https://github.com/rdsngit/rails-demo-crud-with-database-query-optimisation/blob/2884187e8e63f716570ea72243b734231072ff64/app/views/posts/_table.html.erb#L19-L20
+- [/app/models/comment.rb](/app/models/comment.rb)
+
+```rb
+# app/models/comment.rb
+class Comment < ApplicationRecord
+  belongs_to :post, counter_cache: true
+```
+
+The counter cache warning can be set to `true` in the controller and then triggered in the posts table partial.
+
+- [/app/views/posts/_table.html.erb](/app/views/posts/_table.html.erb)
+
+```rb
+# app/views/posts/_table.html.erb
+<% comments_count = @counter_cache_warning ? post.comments.count : post.comments_count %>
+<%= pluralize(comments_count, 'Comment') %>:
+```
 
 The query can also be manually run in the rails console using `bin/rails c` and running the following code to see the additional query for the count that is activated.
 
