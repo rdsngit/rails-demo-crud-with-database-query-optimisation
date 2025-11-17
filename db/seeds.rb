@@ -7,3 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+[ "first_post", "second_post" ].each do |post_name|
+  post = Post.find_or_create_by!(name: post_name)
+  post.comments.find_or_create_by!(name: 'first_comment')
+  post.comments.find_or_create_by!(name: 'second_comment')
+end
