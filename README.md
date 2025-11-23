@@ -65,6 +65,9 @@ Comment
   validations
     is expected to validate that :content cannot be empty/falsy
     is expected to validate that the length of :content is between 3 and 255
+  #before_save
+    when :content attribute has changed and starts with a lower case letter
+      sets the :content attribute's fist letter to a capital letter
 
 Post
   associations
@@ -72,6 +75,9 @@ Post
   associations
     is expected to validate that :name cannot be empty/falsy
     is expected to validate that the length of :name is between 3 and 255
+  #before_save
+    when :name attribute has changed and starts with a lower case letter
+      sets the :name attribute's fist letter to a capital letter
 
 Posts
   GET /posts
@@ -89,8 +95,8 @@ Posts
   DELETE /posts/:id
     deletes the post and redirects to posts index page
 
-Finished in 0.14284 seconds (files took 0.90311 seconds to load)
-13 examples, 0 failures
+Finished in 0.09225 seconds (files took 0.88722 seconds to load)
+15 examples, 0 failures
 ```
 
 ## Use of Bullet gem for optimising database queries
